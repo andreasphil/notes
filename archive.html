@@ -1,0 +1,20 @@
+---
+layout: baseLayout.html
+title: Archive
+---
+
+<main>
+  <div>
+    <h1>Archive</h1>
+  </div>
+
+  <ul>
+    {% for note in collections.note reversed %}
+    <li>
+      {{ note.data.icon }}
+      <a href="{{ note.url }}">{{ note.page.date | date: "%B %Y" }}:</a>
+      {{ note.data.title }}
+    </li>
+    {% endfor %}
+  </ul>
+</main>

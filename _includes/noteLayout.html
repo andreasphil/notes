@@ -1,0 +1,32 @@
+---
+layout: baseLayout.html
+---
+
+<main>
+  <h1>{{ icon }} {{ date | date: "%B %Y" }}</h1>
+  <small>{{ title }}</small>
+
+  {{ content }}
+</main>
+
+<footer>
+  <!-- More recent post -->
+  {% assign newer = collections.note | getNextCollectionItem: page %}
+
+  <!-- Older post -->
+  {% assign older = collections.note | getPreviousCollectionItem: page %}
+
+  <!-- More recent post -->
+  {% if newer %}
+  <a href="{{ newer.url }}">&leftarrow; Newer</a>
+  {% else %}
+  <small>You're all caught up! 🎉</small>
+  {% endif %}
+
+  <!-- Older post -->
+  {% if older %}
+  <a href="{{ older.url }}">Older &rightarrow;</a>
+  {% else %}
+  <small>This is the oldest note 🕸️</small>
+  {% endif %}
+</footer>

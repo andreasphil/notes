@@ -1,0 +1,15 @@
+{
+  "name": "notes",
+  "description": "Monthly-ish learnings and discoveries related to frontend, the web, and software engineering in general",
+  "author": "Andreas Philippi",
+  "license": "MIT",
+  "type": "module",
+  "repository": "https://github.com/andreasphil/notes",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}

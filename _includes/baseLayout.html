@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 16 16'><text x='0' y='14'>🐸</text></svg>"
+    />
+
+    <title>{% if title %}{{ title }} | {% endif %}Andreas&rsquo; Notes</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/style/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <strong>Andreas&rsquo; Notes</strong>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/archive/"> Archive </a>
+          </li>
+          <li>
+            <a href="https://github.com/andreasphil/notes" target="_blank">
+              View Source
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    {{ content }}
+  </body>
+</html>

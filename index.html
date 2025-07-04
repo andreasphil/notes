@@ -1,0 +1,38 @@
+---
+layout: baseLayout.html
+---
+
+<main>
+  <h1>
+    Monthly-ish learnings and discoveries related to frontend, the web, and
+    software engineering in general.
+  </h1>
+  <p>
+    Curated by me,
+    <a href="https://github.com/andreasphil" target="_blank">Andreas</a> 👋
+    mostly for myself and my dear coworkers at
+    <a href="https://digitalservice.bund.de" target="_blank">
+      DigitalService.
+    </a>
+  </p>
+
+  {% assign latestNote = collections.note | last %}
+  <h2>{{ latestNote.data.icon }} {{ latestNote.page.date | date: "%B %Y" }}</h2>
+  <small>{{ latestNote.data.title }}</small>
+
+  {{ latestNote.content }}
+
+  <h2>Previous editions</h2>
+  {% assign previousNotes = collections.note | reverse | slice: 1, 6 %}
+  <ul>
+    {% for note in previousNotes %}
+    <li>
+      {{ note.data.icon }}
+      <a href="{{ note.url }}">{{ note.page.date | date: "%B %Y" }}:</a>
+      {{ note.data.title }}
+    </li>
+    {% endfor %}
+  </ul>
+
+  <p>Find all previous editions in the <a href="/archive">archive.</a></p>
+</main>
