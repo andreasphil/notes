@@ -6,10 +6,10 @@
   color-scheme: light dark;
   color: light-dark(black, white);
   font-family: serif;
-  font-size: clamp(17px, 0.28vw + 15.963px, 20px);
+  font-size: 1.15em;
   line-height: 1.6;
   margin: auto;
-  max-width: 75ch;
+  max-width: 85ch;
   padding: 4rem 1rem;
 }
 :where(h1, h2, h3, h4, h5, h6) {
