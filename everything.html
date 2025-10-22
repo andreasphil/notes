@@ -15,7 +15,7 @@ title: Everything
 
   {% for note in collections.note reversed %}
   <section>
-    <h1>{{ note.data.icon }} {{ note.date | date: "%B %Y" }}</h1>
+    <h2>{{ note.data.icon }} {{ note.date | date: "%B %Y" }}</h2>
     <small>{{ note.title }}</small>
 
     {{ note.content }}
