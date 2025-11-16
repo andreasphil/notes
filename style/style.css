@@ -49,6 +49,12 @@
   max-width: 100%;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
 footer {
   border-top: 1px solid currentColor;
   display: flex;

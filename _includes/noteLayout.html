@@ -3,7 +3,9 @@ layout: baseLayout.html
 ---
 
 <main>
-  <h1>{{ icon }} {{ date | date: "%B %Y" }}</h1>
+  <h1 style="view-transition-name: post-title-{{ date | date: '%Y-%m' }}">
+    {{ icon }} {{ date | date: "%B %Y" }}
+  </h1>
   <small>{{ title }}</small>
 
   {{ content }}

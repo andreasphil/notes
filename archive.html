@@ -15,8 +15,12 @@ title: Archive
   <ul>
     {% for note in collections.note reversed %}
     <li>
-      {{ note.data.icon }}
-      <a href="{{ note.url }}">{{ note.page.date | date: "%B %Y" }}:</a>
+      <span
+        style="view-transition-name: post-title-{{ note.page.date | date: '%Y-%m' }}"
+      >
+        {{ note.data.icon }}
+        <a href="{{ note.url }}"> {{ note.page.date | date: "%B %Y" }}:</a>
+      </span>
       {{ note.data.title }}
     </li>
     {% endfor %}
