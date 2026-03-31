@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+  <h1>
+    Monthly-ish learnings and discoveries related to frontend, the web, and
+    software engineering in general.
+  </h1>
+  <p>
+    Curated by me,
+    <a href="https://github.com/andreasphil" target="_blank">Andreas</a> 👋
+    mostly for myself and my dear coworkers at
+    <a href="https://digitalservice.bund.de" target="_blank">DigitalService.</a>
+  </p>
+
+  {% set notes_section = get_section(path="notes/_index.md") %}
+  {% set notes = notes_section.pages %}
+  {% set latest = notes | first %}
+
+  <h2>{{ latest.extra.icon }} {{ latest.date | date(format="%B %Y") }}</h2>
+  <small>{{ latest.title }}</small>
+
+  {{ latest.content | safe }}
+
+  <h2>Previous editions</h2>
+  <ul>
+    {% for note in notes | slice(start=1, end=7) %}
+    <li>
+      {{ note.extra.icon }}
+      <a href="{{ note.permalink }}">{{ note.date | date(format="%B %Y") }}:</a>
+      {{ note.title }}
+    </li>
+    {% endfor %}
+  </ul>
+
+  <p>Find all previous editions in the <a href="/archive/">archive.</a></p>
+</main>
+{% endblock content %}

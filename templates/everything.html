@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Everything | {% endblock title %}
+
+{% block content %}
+<main>
+  <div>
+    <h1>Everything</h1>
+    <p>
+      All editions on a single page to make it easier to find things in lieu of
+      a proper search. You can also browse previous editions by month in the
+      <a href="/archive/">archive.</a>
+    </p>
+  </div>
+
+  {% set all_notes = get_section(path="notes/_index.md") %}
+  {% for note in all_notes.pages %}
+  <section>
+    <h2>{{ note.extra.icon }} {{ note.date | date(format="%B %Y") }}</h2>
+    <small>{{ note.title }}</small>
+
+    {{ note.content | safe }}
+  </section>
+  {% endfor %}
+</main>
+{% endblock content %}

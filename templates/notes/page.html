@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | {% endblock title %}
+
+{% block content %}
+<main>
+  <h1 style="view-transition-name: post-title-{{ page.date | date(format='%Y-%m') }}">
+    {{ page.extra.icon }} {{ page.date | date(format="%B %Y") }}
+  </h1>
+  <small>{{ page.title }}</small>
+
+  {{ page.content | safe }}
+</main>
+
+<footer>
+  {% if page.lower %}
+  <a href="{{ page.lower.permalink }}">&leftarrow; Newer</a>
+  {% else %}
+  <small>You're all caught up! 🎉</small>
+  {% endif %}
+
+  {% if page.higher %}
+  <a href="{{ page.higher.permalink }}">Older &rightarrow;</a>
+  {% else %}
+  <small>This is the oldest note 🕸️</small>
+  {% endif %}
+</footer>
+{% endblock content %}
