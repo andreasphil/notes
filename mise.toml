@@ -1,5 +1,2 @@
 [tools]
 zola = "latest"
-
-[tasks.dev]
-run = "zola serve"
