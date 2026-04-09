@@ -14,9 +14,3 @@ Notes is a static website built with [Zola](https://www.getzola.org). The follow
 zola serve   # Start development server
 zola build   # Build website for publishing
 ```
-
-## Deployment
-
-Deployment should work out of the box on GitHub Pages.
-
-Thanks 🙏
