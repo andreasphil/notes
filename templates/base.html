@@ -12,7 +12,7 @@
     <title>{% block title %}{% endblock title %}Andreas&rsquo; Notes</title>
 
     <!-- Feed -->
-    <link rel="alternate" type="application/atom+xml" title="Andreas' Notes" href="/notes/atom.xml" />
+    <link rel="alternate" type="application/atom+xml" title="RSS" href="{{ get_url(path='notes/atom.xml', trailing_slash=false) }}" />
 
     <!-- Styles -->
     <link rel="stylesheet" href="/style/style.css" />

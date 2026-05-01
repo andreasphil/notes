@@ -1,7 +1,10 @@
 base_url = "https://notes.a13i.dev"
-title = "Andreas' Notes"
+title = "Andreas’ Notes"
 description = "Monthly learnings and discoveries related to frontend, the web, and software engineering in general"
+author = "Andreas"
 default_language = "en"
+generate_feeds = true
+feed_filenames = ["atom.xml"]
 
 [markdown]
 smart_punctuation = true
