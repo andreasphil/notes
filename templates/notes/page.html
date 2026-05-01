@@ -3,26 +3,38 @@
 {% block title %}{{ page.title }} | {% endblock title %}
 
 {% block content %}
-<main>
-  <h1 style="view-transition-name: post-title-{{ page.date | date(format='%Y-%m') }}">
-    {{ page.extra.icon }} {{ page.date | date(format="%B %Y") }}
-  </h1>
-  <small>{{ page.title }}</small>
 
-  {{ page.content | safe }}
+{% set chevron_left = load_data(path="static/icons/chevron-left.svg") %}
+{% set chevron_right = load_data(path="static/icons/chevron-right.svg") %}
+{% set party_popper = load_data(path="static/icons/party-popper.svg") %}
+
+<main>
+  <section class="trim">
+    <hgroup class="text-center">
+      <h1>
+        <span class="glow" data-content="{{ page.extra.icon }}">{{ page.extra.icon }}</span>
+        {{ page.date | date(format="%B %Y") }}
+      </h1>
+      <p class="font-size-h4">{{ page.title | markdown(inline=true) }}</p>
+    </hgroup>
+  </section>
+
+  <article>
+    {{ page.content | safe }}
+  </article>
 </main>
 
 <footer>
   {% if page.lower %}
-  <a href="{{ page.lower.permalink }}">&leftarrow; Newer</a>
+  <a href="{{ page.lower.permalink }}">{{ chevron_left | safe }} Newer</a>
   {% else %}
-  <small>You're all caught up! 🎉</small>
+  <span>{{ party_popper | safe }} Caught up!</span>
   {% endif %}
 
   {% if page.higher %}
-  <a href="{{ page.higher.permalink }}">Older &rightarrow;</a>
+  <a href="{{ page.higher.permalink }}">Older {{ chevron_right | safe }}</a>
   {% else %}
-  <small>This is the oldest note 🕸️</small>
+  <span>The end {{ party_popper | safe }}</span>
   {% endif %}
 </footer>
 {% endblock content %}

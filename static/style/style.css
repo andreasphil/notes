@@ -1,68 +1,155 @@
-:where(*, ::before, ::after) {
-  box-sizing: border-box;
+@layer base, components, utils;
+
+@import "../common/design-system.css" layer(base);
+@import "../common/design-system-utils.css" layer(utils);
+
+@layer base {
+  :root {
+    --body-padding-y: clamp(3rem, 1.495vw + 2.625rem, 4rem);
+    --border-radius-large: 0px;
+    --c-border-variant: var(--c-border);
+    --c-glass: var(--c-surface-bg);
+    --font-size: clamp(14px, 0.187vw + 13.308px, 16px);
+    --font-weight-bold: 500;
+    --shadow-elevation-high: none;
+    --shadow-elevation-low: none;
+    --shadow-elevation-medium: none;
+    --tint: 230;
+  }
 }
-:where(body) {
-  background-color: light-dark(white, black);
-  color-scheme: light dark;
-  color: light-dark(black, white);
-  font-family: serif;
-  font-size: 1.15em;
-  line-height: 1.6;
-  margin: auto;
-  max-width: 85ch;
-  padding: 4rem 1rem;
+
+:root {
+  --font-family-display: Georgia, serif;
+}
+
+body {
+  border-inline: var(--border-width) solid var(--c-border);
+  max-width: min(var(--body-width), calc(100dvw - 2rem));
+  min-height: 100dvh;
+  padding-inline: 0;
+}
+
+h2,
+h3 {
+  text-transform: capitalize;
+}
+
+article {
+  --c-link-hover: var(--c-fg);
+  --c-link: var(--primary);
+  --outer-spacing-y: 1rem;
+
+  line-height: 1.75;
+  margin: 0;
+  position: relative;
   text-wrap: pretty;
+
+  h3 {
+    font-size: var(--font-size-h5);
+    margin-top: calc(var(--internal-padding) * 2);
+    margin-bottom: calc(var(--outer-spacing-y) * 2);
+
+    &:before {
+      border-top: var(--border-width) solid var(--c-border);
+      content: "";
+      inset-inline: 0;
+      margin-top: calc(var(--internal-padding) * -1);
+      position: absolute;
+    }
+  }
+
+  > ul:first-child > li:first-child p {
+    margin-top: 0;
+  }
+
+  > ul:last-child > li:last-child p {
+    margin-bottom: 0;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-left: 1rem;
+  }
+
+  em,
+  blockquote {
+    font-family: var(--font-family-display);
+    font-style: italic;
+  }
 }
-:where(h1, h2, h3, h4, h5, h6) {
-  line-height: 1.2;
-  margin: 2em 0 1rem;
-  text-wrap: balance;
+
+article,
+section {
+  border-bottom: var(--border-width) solid var(--c-border);
+  padding: var(--body-padding-y) var(--body-padding-x);
+
+  &:first-child {
+    padding-top: 0;
+  }
 }
-:where(article, blockquote, header, footer, figure, ol, ul, hr, p, pre) {
-  margin: 1.25em 0;
-}
-:where(ol, ul) {
-  padding-left: 1.5em;
-}
-:where(header nav ul) {
-  column-gap: 1rem;
-  display: inline-flex;
-  flex-wrap: wrap;
+
+.archive-grid {
+  background: var(--c-border);
+  border-block: var(--border-width) solid var(--c-border);
+  display: grid;
+  gap: var(--border-width);
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   list-style-type: none;
+  margin-inline: calc(-1 * var(--body-padding-x));
+  padding: 0;
+
+  .card {
+    background: var(--c-bg);
+    border-radius: 0;
+    height: 100%;
+
+    p {
+      font-size: var(--font-size);
+    }
+  }
+}
+
+.archive-stack {
+  list-style: none;
   margin: 0;
   padding: 0;
-  row-gap: 0;
-}
-:where(hr) {
-  border-color: currentColor;
-  border-width: 1px 0 0 0;
-}
-:where(a, a:hover, a:visited, a:active) {
-  color: light-dark(blue, cornflowerblue);
-}
-:where(button, input, select, textarea) {
-  color: inherit;
-  font: inherit;
-  letter-spacing: inherit;
-}
-:where(img) {
-  display: block;
-  max-width: 100%;
+
+  li a {
+    background: var(--c-bg);
+    border-bottom: var(--border-width) solid var(--c-border);
+    display: flex;
+    gap: 0.75ch;
+    padding: 1.25rem var(--body-padding-x);
+    text-decoration: none;
+    text-wrap: pretty;
+
+    &:focus-visible {
+      outline-offset: var(--outline-inset);
+      outline: var(--outline);
+    }
+  }
 }
 
 footer {
-  border-top: 1px solid currentColor;
+  border-bottom: var(--border-width) solid var(--c-border);
   display: flex;
-  justify-content: space-between;
-  margin-top: 4rem;
-  padding-top: 1.25em;
-}
 
-blockquote {
-  font-style: italic;
-}
+  a,
+  span {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    gap: 0.75ch;
+    padding: calc(var(--body-padding-y) * 0.5) var(--body-padding-x);
 
-small {
-  color: slategray;
-  font-size: inherit;
+    &:last-child {
+      border-left: var(--border-width) solid var(--c-border);
+      justify-content: flex-end;
+      text-align: right;
+    }
+  }
+
+  span {
+    color: var(--c-fg-variant);
+  }
 }

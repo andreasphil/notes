@@ -11,25 +11,27 @@
 
     <title>{% block title %}{% endblock title %}Andreas&rsquo; Notes</title>
 
+    <!-- Feed -->
+    <link rel="alternate" type="application/atom+xml" title="Andreas' Notes" href="/notes/atom.xml" />
+
     <!-- Styles -->
     <link rel="stylesheet" href="/style/style.css" />
   </head>
 
   <body>
     <header>
-      <nav>
+      <nav fixed>
+        <strong>Andreas&rsquo; Notes</strong>
         <ul>
-          <strong>Andreas&rsquo; Notes</strong>
           <li>
-            <a href="/">Home</a>
+            <a href="/"{% if current_path == "/" %} aria-current="page"{% endif %}>Home</a>
           </li>
           <li>
-            <a href="/archive/">Archive</a>
+            <a href="/notes/"{% if current_path is starting_with("/notes/") %} aria-current="page"{% endif %}>Archive</a>
           </li>
           <li>
-            <a href="https://github.com/andreasphil/notes" target="_blank">
-              View Source
-            </a>
+            {% set external_link = load_data(path="static/icons/external-link.svg") %}
+            <a href="https://github.com/andreasphil/notes" target="_blank">View Source {{ external_link | safe }}</a>
           </li>
         </ul>
       </nav>

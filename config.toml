@@ -1,6 +1,6 @@
 base_url = "https://notes.a13i.dev"
 title = "Andreas' Notes"
-description = "Monthly-ish learnings and discoveries related to frontend, the web, and software engineering in general"
+description = "Monthly learnings and discoveries related to frontend, the web, and software engineering in general"
 default_language = "en"
 
 [markdown]
