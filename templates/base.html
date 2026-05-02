@@ -12,10 +12,15 @@
     <title>{% block title %}{% endblock title %}Andreas&rsquo; Notes</title>
 
     <!-- Feed -->
-    <link rel="alternate" type="application/atom+xml" title="RSS" href="{{ get_url(path='notes/atom.xml', trailing_slash=false) }}" />
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      title="RSS"
+      href="{{ get_url(path='notes/atom.xml', trailing_slash=false) }}"
+    />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/style/style.css" />
+    <link rel="stylesheet" href="{{ get_url(path='style/style.css') }}" />
   </head>
 
   <body>
@@ -24,14 +29,26 @@
         <strong>Andreas&rsquo; Notes</strong>
         <ul>
           <li>
-            <a href="/"{% if current_path == "/" %} aria-current="page"{% endif %}>Home</a>
+            {% set home_path = get_url(path='@/_index.md') %}
+            {% set is_home = current_url is defined and current_url == home_path %}
+            <a
+              href="{{ home_path }}"
+              {% if is_home %}aria-current="page"{% endif %}
+            >Home</a>
           </li>
           <li>
-            <a href="/notes/"{% if current_path is starting_with("/notes/") %} aria-current="page"{% endif %}>Archive</a>
+            {% set archive_path = get_url(path='@/notes/_index.md') %}
+            {% set is_archive = current_url is defined and (current_url == archive_path or current_url is starting_with(archive_path)) %}
+            <a
+              href="{{ archive_path }}"
+              {% if is_archive %}aria-current="page"{% endif %}
+            >Archive</a>
           </li>
           <li>
             {% set external_link = load_data(path="static/icons/external-link.svg") %}
-            <a href="https://github.com/andreasphil/notes" target="_blank">View Source {{ external_link | safe }}</a>
+            <a
+              href="https://github.com/andreasphil/notes"
+              target="_blank">View Source {{ external_link | safe }}</a>
           </li>
         </ul>
       </nav>
