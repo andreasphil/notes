@@ -11,6 +11,7 @@
 Notes is a static website built with [Zola](https://www.getzola.org). The following commands are available:
 
 ```sh
-zola serve   # Start development server
-zola build   # Build website for publishing
+mise dev      # Start development server
+mise run fmt  # Format files
+zola build    # Build website for publishing
 ```
