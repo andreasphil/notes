@@ -2,60 +2,62 @@
 
 {% block content %}
 
-{% set notes_section = get_section(path="notes/_index.md") %}
-{% set notes = notes_section.pages %}
-{% set latest = notes | first %}
+  {% set notes_section = get_section(path="notes/_index.md") %}
+  {% set notes = notes_section.pages %}
+  {% set latest = notes | first %}
 
-<main>
-  <section class="trim">
-    <hgroup class="text-center">
-      <h1 class="text-pretty">
-        Monthly learnings and discoveries related to frontend, the web, and
-        software engineering in general.
-      </h1>
-      <p class="font-size-h4">
-        Curated by me,
-        <a href="https://github.com/andreasphil" target="_blank">Andreas</a> 👋
-        mostly for myself and my dear coworkers at
-        <a href="https://digitalservice.bund.de" target="_blank">DigitalService.</a>
-      </p>
-    </hgroup>
-  </section>
+  <main>
+    <section class="trim">
+      <hgroup class="text-center">
+        <h1 class="text-pretty">
+          Monthly learnings and discoveries related to frontend, the web, and software engineering
+          in general.
+        </h1>
+        <p class="font-size-h4">
+          Curated by me,
+          <a href="https://github.com/andreasphil" target="_blank">Andreas</a>
+          👋 mostly for myself and my dear coworkers at
+          <a href="https://digitalservice.bund.de" target="_blank">DigitalService.</a>
+        </p>
+      </hgroup>
+    </section>
 
-  <article>
-    <hgroup>
-      <p class="font-size-small color-primary caps font-weight-medium">Latest edition</p>
-      <h2>
-        <span class="glow" data-content="{{ latest.extra.icon }}">{{ latest.extra.icon }}</span>
-        {{ latest.date | date(format="%B %Y") }}
-      </h2>
-      <p>{{ latest.title | markdown(inline=true) }}</p>
-    </hgroup>
-    <hr />
-    {{ latest.content | safe }}
-  </article>
+    <article>
+      <hgroup>
+        <p class="font-size-small color-primary caps font-weight-medium">Latest edition</p>
+        <h2>
+          <span class="glow" data-content="{{ latest.extra.icon }}">{{ latest.extra.icon }}</span>
+          {{ latest.date | date(format="%B %Y") }}
+        </h2>
+        <p>{{ latest.title | markdown(inline=true) }}</p>
+      </hgroup>
+      <hr />
+      {{ latest.content | safe }}
+    </article>
 
-  <section class="trim">
-    <h2 class="text-center">Previous editions</h2>
-    <ul class="archive-grid">
-      {% for note in notes | slice(start=1, end=7) %}
-      <li>
-        <a class="card" href="{{ note.permalink }}">
-          <header class="glow" data-content="{{ note.extra.icon }}">{{ note.extra.icon }}</header>
-          <p>{{ note.date | date(format="%B %Y") }}</p>
-          <p class="font-weight-normal clamp" style="--clamp: 2">
-            {{ note.title | markdown(inline=true) }}
-          </p>
+    <section class="trim">
+      <h2 class="text-center">Previous editions</h2>
+      <ul class="archive-grid">
+        {% for note in notes | slice(start=1, end=7) %}
+          <li>
+            <a class="card" href="{{ note.permalink }}">
+              <header class="glow" data-content="{{ note.extra.icon }}">
+                {{ note.extra.icon }}
+              </header>
+              <p>{{ note.date | date(format="%B %Y") }}</p>
+              <p class="font-weight-normal clamp" style="--clamp: 2">
+                {{ note.title | markdown(inline=true) }}
+              </p>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <p class="text-center">
+        <a href="{{ get_url(path='@/notes/_index.md') }}">
+          Find all previous editions in the archive.
         </a>
-      </li>
-      {% endfor %}
-    </ul>
-
-    <p class="text-center">
-      <a href="{{ get_url(path='@/notes/_index.md') }}">
-        Find all previous editions in the archive.
-      </a>
-    </p>
-  </section>
-</main>
+      </p>
+    </section>
+  </main>
 {% endblock content %}

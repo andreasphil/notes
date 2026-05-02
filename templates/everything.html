@@ -1,32 +1,32 @@
 {% extends "base.html" %}
 
-{% block title %}Everything | {% endblock title %}
+{% block title %}Everything |{% endblock title %}
 
 {% block content %}
-<main>
-  <section class="trim">
-    <hgroup class="text-center">
-      <h1>Everything</h1>
-      <p class="font-size-h4">
-        All editions on a single page to make it easier to find things in lieu of
-        a proper search. You can also browse previous editions by month in the
-        <a href="{{ get_url(path='@/notes/_index.md') }}">archive.</a>
-      </p>
-    </hgroup>
-  </section>
+  <main>
+    <section class="trim">
+      <hgroup class="text-center">
+        <h1>Everything</h1>
+        <p class="font-size-h4">
+          All editions on a single page to make it easier to find things in lieu of a proper search.
+          You can also browse previous editions by month in the
+          <a href="{{ get_url(path='@/notes/_index.md') }}">archive.</a>
+        </p>
+      </hgroup>
+    </section>
 
-  {% set all_notes = get_section(path="notes/_index.md") %}
-  {% for note in all_notes.pages %}
-  <article>
-    <hgroup>
-      <h2>
-        <span class="glow" data-content="{{ note.extra.icon }}">{{ note.extra.icon }}</span>
-        {{ note.date | date(format="%B %Y") }}
-      </h2>
-      <p>{{ note.title | markdown(inline=true) }}</p>
-    </hgroup>
-    {{ note.content | safe }}
-  </article>
-  {% endfor %}
-</main>
+    {% set all_notes = get_section(path="notes/_index.md") %}
+    {% for note in all_notes.pages %}
+      <article>
+        <hgroup>
+          <h2>
+            <span class="glow" data-content="{{ note.extra.icon }}">{{ note.extra.icon }}</span>
+            {{ note.date | date(format="%B %Y") }}
+          </h2>
+          <p>{{ note.title | markdown(inline=true) }}</p>
+        </hgroup>
+        {{ note.content | safe }}
+      </article>
+    {% endfor %}
+  </main>
 {% endblock content %}
