@@ -1,2 +1,6 @@
 [tools]
 zola = "latest"
+
+[tasks]
+dev = { run = "zola serve" }
+fmt = { run = "pnpm prettier -cw '**/*.{html,css,js,md,xml,json,yaml}'" }
