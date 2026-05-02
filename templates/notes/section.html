@@ -1,31 +1,31 @@
 {% extends "base.html" %}
 
-{% block title %}Archive | {% endblock title %}
+{% block title %}Archive |{% endblock title %}
 
 {% block content %}
-<main>
-  <section class="trim">
-    <hgroup class="text-center">
-      <h1>Archive</h1>
-      <p class="font-size-h4">
-        Browse the archive by month below, or view all previous editions
-        <a href="{{ get_url(path='@/everything.md') }}">on one page.</a>
-      </p>
-    </hgroup>
-  </section>
+  <main>
+    <section class="trim">
+      <hgroup class="text-center">
+        <h1>Archive</h1>
+        <p class="font-size-h4">
+          Browse the archive by month below, or view all previous editions
+          <a href="{{ get_url(path='@/everything.md') }}">on one page.</a>
+        </p>
+      </hgroup>
+    </section>
 
-  <ul class="archive-stack">
-    {% for note in section.pages %}
-    <li>
-      <a href="{{ note.permalink }}">
-        <span class="glow" data-content="{{ note.extra.icon }}">{{ note.extra.icon }}</span>
-        <span>
-          <strong>{{ note.date | date(format="%B %Y") }}:</strong>
-          <span class="color-variant">{{ note.title | markdown(inline=true) }}</span>
-        </span>
-      </a>
-    </li>
-    {% endfor %}
-  </ul>
-</main>
+    <ul class="archive-stack">
+      {% for note in section.pages %}
+        <li>
+          <a href="{{ note.permalink }}">
+            <span class="glow" data-content="{{ note.extra.icon }}">{{ note.extra.icon }}</span>
+            <span>
+              <strong>{{ note.date | date(format="%B %Y") }}:</strong>
+              <span class="color-variant">{{ note.title | markdown(inline=true) }}</span>
+            </span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </main>
 {% endblock content %}
