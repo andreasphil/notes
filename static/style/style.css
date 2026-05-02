@@ -8,9 +8,11 @@
     --body-padding-y: clamp(3rem, 1.495vw + 2.625rem, 4rem);
     --border-radius-large: 0px;
     --c-border-variant: var(--c-border);
+    --c-fg-variant: var(--neutral-500);
     --c-glass: var(--c-surface-bg);
     --font-size: clamp(14px, 0.187vw + 13.308px, 16px);
     --font-weight-bold: 500;
+    --primary: light-dark(oklch(54% 0.2 230), oklch(70% 0.17 230));
     --shadow-elevation-high: none;
     --shadow-elevation-low: none;
     --shadow-elevation-medium: none;
