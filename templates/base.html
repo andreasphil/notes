@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="apple-touch-icon" href="{{ get_url(path='assets/apple-touch-icon.png') }}" />
     <link rel="icon" href="{{ get_url(path='assets/favicon.png') }}" sizes="any" />
-    <title>{% block title %}{% endblock title %}Andreas&rsquo; Notes</title>
+    <title>{% block title %}{% endblock title %}{{ config.title }}</title>
 
     <!-- Feed -->
     <link
@@ -22,7 +22,16 @@
   <body>
     <header>
       <nav fixed>
-        <strong>Andreas&rsquo; Notes</strong>
+        <strong>
+          <img
+            src="{{ get_url(path='assets/icon-192.png') }}"
+            class="rounded-squircle shadow-high"
+            width="36"
+            height="36"
+            alt=""
+          />{{ config.title }}
+        </strong>
+
         <ul>
           <li>
             {% set home_path = get_url(path='@/_index.md') %}
