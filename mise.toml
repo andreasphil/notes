@@ -3,4 +3,5 @@ zola = "0.22.1"
 
 [tasks]
 dev = { run = "zola serve" }
+build = { run = "zola build" }
 fmt = { run = "pnpm prettier -cw '**/*.{html,css,js,md,xml,json,yaml}'" }
