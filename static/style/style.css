@@ -103,10 +103,6 @@ section {
     border-radius: 0;
     box-shadow: none;
     height: 100%;
-
-    p {
-      font-size: var(--font-size);
-    }
   }
 }
 
