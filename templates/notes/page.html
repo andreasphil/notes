@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 
-{% block title %}{{ page.title }} | {% endblock title %}
+{% block title %}{{ page.title }} |{{ " " }}{% endblock title %}
 
 {% block content %}
-
   {% set chevron_left = load_data(path="static/icons/chevron-left.svg") %}
   {% set chevron_right = load_data(path="static/icons/chevron-right.svg") %}
   {% set party_popper = load_data(path="static/icons/party-popper.svg") %}
