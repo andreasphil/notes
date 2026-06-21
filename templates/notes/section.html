@@ -5,27 +5,29 @@
 {% block content %}
   <main>
     <section class="trim">
-      <hgroup class="text-center">
+      <hgroup class="text-center margin-y-body">
         <h1>Archive</h1>
         <p class="font-size-h4">
           Browse the archive by month below, or view all previous editions
           <a href="{{ get_url(path='@/everything.md') }}">on one page.</a>
         </p>
       </hgroup>
-    </section>
 
-    <ul class="archive-stack">
-      {% for note in section.pages %}
-        <li>
-          <a href="{{ note.permalink }}">
-            <span class="glow" data-content="{{ note.extra.icon }}">{{ note.extra.icon }}</span>
-            <span>
-              <strong>{{ note.date | date(format="%B %Y") }}:</strong>
-              <span class="color-variant">{{ note.title | markdown(inline=true) }}</span>
-            </span>
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
+      <ul class="archive-stack">
+        {% for note in section.pages %}
+          <li>
+            <a class="card" href="{{ note.permalink }}">
+              <header class="glow" data-content="{{ note.extra.icon }}">
+                {{ note.extra.icon }}
+              </header>
+              <p>{{ note.date | date(format="%B %Y") }}</p>
+              <p class="font-weight-normal clamp" style="--clamp: 2">
+                {{ note.title | markdown(inline=true) }}
+              </p>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
   </main>
 {% endblock content %}

@@ -88,41 +88,39 @@ section {
   }
 }
 
-.archive-grid {
-  background: var(--c-border);
+.archive-grid,
+.archive-stack {
   border-block: var(--border-width) solid var(--c-border);
   display: grid;
   gap: var(--border-width);
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   list-style-type: none;
   margin-inline: calc(-1 * var(--body-padding-x));
   padding: 0;
 
   .card {
-    background: var(--c-bg);
     border-radius: 0;
     box-shadow: none;
     height: 100%;
   }
 }
 
+.archive-grid {
+  background: var(--c-border);
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
 .archive-stack {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  li a {
-    background: var(--c-bg);
+  li:not(:last-child) .card {
     border-bottom: var(--border-width) solid var(--c-border);
-    display: flex;
-    gap: 0.75ch;
-    padding: 1.25rem var(--body-padding-x);
-    text-decoration: none;
-    text-wrap: pretty;
+  }
 
-    &:focus-visible {
-      outline-offset: var(--outline-inset);
-      outline: var(--outline);
+  @supports (rule: 1px solid black) {
+    gap: var(--border-width);
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    rule: var(--border-width) solid var(--c-border);
+
+    li:not(:last-child) .card {
+      border-bottom: none;
     }
   }
 }
