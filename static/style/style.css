@@ -12,7 +12,7 @@
     --c-glass: var(--c-surface-bg);
     --font-size: clamp(14px, 0.187vw + 13.308px, 16px);
     --font-weight-bold: 500;
-    --primary: light-dark(oklch(54% 0.2 230), oklch(70% 0.17 230));
+    --primary: light-dark(oklch(54% 0.2 230), oklch(64% 0.14 230));
     --tint: 230;
   }
 }
