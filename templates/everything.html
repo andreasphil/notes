@@ -25,7 +25,9 @@
           </h2>
           <p>{{ note.title | markdown(inline=true) }}</p>
         </hgroup>
-        {{ note.content | safe }}
+        <div class="prose">
+          {{ note.content | safe }}
+        </div>
       </article>
     {% endfor %}
   </main>

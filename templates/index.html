@@ -32,7 +32,9 @@
         <p>{{ latest.title | markdown(inline=true) }}</p>
       </hgroup>
       <hr />
-      {{ latest.content | safe }}
+      <div class="prose">
+        {{ latest.content | safe }}
+      </div>
     </article>
 
     <section class="trim">
