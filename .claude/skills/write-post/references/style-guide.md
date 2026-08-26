@@ -97,6 +97,19 @@ Use `[...]` to mark elisions inside a blockquote, same as ordinary quoting conve
 
 - Entries are ordered alphabetically by product/tool name.
 
+- Major versions are written **without a trailing `.0`**. Minor and patch versions keep their numbers as written. Applies to release candidates and other prereleases too.
+
+```markdown
+- [**TypeScript 7,**](url) ...
+- [**Solid 2 Release Candidate,**](url) ...
+```
+
+Wrong: `TypeScript 7.0`, `Solid 2.0 Release Candidate`.
+
+- **`1.0` is the exception and keeps its `.0`.** Bare `1` sounds silly, and 1.0 as the first stable major is significant in its own right: `Lucide 1.0`, `Rolldown 1.0`, `Zed 1.0`, `Apple Container 1.0`.
+
+- Versions that aren't `.0` are left alone: `Nuxt 4.5`, `Bun 1.4`, `Vue 3.6`, `Zed 0.233.5`. The rule applies to version numbers in body prose too, not just Notable releases. Leave URLs alone even when they contain the dropped `.0` (`solid-2-0-rc-the-big-reveal` stays as it is).
+
 ## Tone
 
 - First person, informed-peer register: casual but technically precise, written for engineers who already know the domain — no need to over-explain fundamentals.
