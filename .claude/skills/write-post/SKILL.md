@@ -28,6 +28,7 @@ This phase is proofreading and style consistency **only**. Do not touch content,
 1. Fix spelling, grammar, and punctuation mistakes.
 2. Apply every rule in `references/style-guide.md` across the whole file, not just the newly drafted parts — inconsistencies can exist anywhere.
 3. Show the user what changed (a diff, or just point them to `git diff`) so they can see exactly what was touched, since this phase is supposed to be low-risk.
+4. Ensure the date is set to the current date.
 
 ## Reference
 
