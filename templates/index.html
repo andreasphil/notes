@@ -38,7 +38,7 @@
     <section class="trim">
       <h2 class="text-center">Previous editions</h2>
       <ul class="archive-grid">
-        {% for note in notes | slice(start=1, end=7) %}
+        {% for note in notes[1:7] %}
           <li>
             <a class="card" href="{{ note.permalink }}">
               <header class="glow" data-content="{{ note.extra.icon }}">

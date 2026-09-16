@@ -40,7 +40,7 @@
           </li>
           <li>
             {% set archive_path = get_url(path='@/notes/_index.md') %}
-            {% set is_archive = current_url is defined and (current_url == archive_path or current_url is starting_with(archive_path)) %}
+            {% set is_archive = current_url is defined and (current_url == archive_path or current_url is starting_with(pat=archive_path)) %}
             <a href="{{ archive_path }}" {% if is_archive %}aria-current="page"{% endif %}>
               Archive
             </a>
