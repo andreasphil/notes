@@ -5,15 +5,23 @@
 
 @layer base {
   :root {
-    --body-padding-y: clamp(3rem, 1.495vw + 2.625rem, 4rem);
     --border-radius-large: 0px;
     --c-border-variant: var(--c-border);
     --c-fg-variant: var(--neutral-500);
     --c-glass: var(--c-surface-bg);
-    --font-size: clamp(14px, 0.187vw + 13.308px, 16px);
     --font-weight-bold: 500;
     --primary: light-dark(oklch(54% 0.2 230), oklch(64% 0.14 230));
     --tint: 230;
+
+    --body-padding-x: 1rem;
+    --body-padding-y: clamp(3rem, 1.495vw + 2.625rem, 4rem);
+    --font-size: clamp(14px, 0.187vw + 13.308px, 16px);
+
+    @supports (width: calc(1px * progress(1px, 0px, 2px))) {
+      --body-padding-x: calc(1rem + 1rem * progress(100dvw, 24rem, 90rem));
+      --body-padding-y: calc(3rem + 1rem * progress(100dvw, 24rem, 90rem));
+      --font-size: calc(14px + 2px * progress(100dvw, 24rem, 90rem));
+    }
   }
 }
 
